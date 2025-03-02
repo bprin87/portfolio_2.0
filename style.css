@@ -1,5 +1,14 @@
+:root {
+    --primary-color: #000;
+    --site-links: #687076;
+    --button-text: #0A84FF;
+    --button-hover: #0071E3;
+    --gradient: linear-gradient(90deg, #0A84FF, #5E5CE6, #FF375F, #FF9F0A);
+}
+
 html {
     font-family: sans-serif;
+    scroll-behavior: smooth;
 }
 
 * {
@@ -28,6 +37,15 @@ a:visited {
     color: initial;
 }
 
+.section-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0;
+    height: 100vh;
+}
+
+
 /* ========== 
     NAVIGATION 
 ========== */
@@ -54,7 +72,7 @@ nav {
 }
 
 .logo {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     padding: 5px 16px;
     margin-left: -15px;
     justify-content: flex-start;
@@ -65,24 +83,21 @@ nav {
     color: inherit;
 }
 
-.logo a:hover {
-    color: #687076;
+.logo a:hover, .menu li a, .hero-heading h2 {
+    color: var(--site-links)
 }
 
 .menu {
-    display: flex;
+    display: none;
 }
 
 .menu li {
     padding: 8px 25px;
 }
 
-.menu li a {
-    color: #687076;
-}
 
 .menu li a:hover {
-    color: black
+    color: var(--primary-color)
 }
 
 .project-enquiry {
@@ -94,15 +109,18 @@ nav {
 }
 
 .project-enquiry a {
-    color: #0A84FF;
     font-weight: 500;
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.project-enquiry a:hover {
-    color:#2a60c9;
+.project-enquiry a, .hero-heading a {
+    color: var(--button-text);
+}
+
+.project-enquiry a:hover, .project-enquiry:hover svg, .hero-heading a:hover {
+    color:var(--button-hover);
 }
 
 .project-enquiry svg {
@@ -118,7 +136,6 @@ nav {
     -webkit-transform: translateX(8px);
     -ms-transform: translateX(8px);
     transform: translateX(8px); 
-    color:#2a60c9;
 }
 
 
@@ -131,10 +148,10 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center; 
     width: 90%;
     margin: 100px auto 45px auto;
-    max-width: 1200px;
+    max-width: 1200px; 
     height: 80vh;
     min-height: 580px;
 }
@@ -147,28 +164,26 @@ nav {
 }
 
 .hero-heading h1 {
-    font-size: 6rem;
+    font-size: 4rem;
     font-family: "DM Sans", serif;
     font-weight: 400;
     padding-bottom: 10px;
-    background: linear-gradient(90deg, #0A84FF, #5E5CE6, #FF375F, #FF9F0A);
+    background: var(--gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero-heading h2 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-family: inherit;
     font-weight: 400;
     margin: 15px 0 40px 0;
-    color: #687076;
 }
 
 .hero-heading a {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
-    color: #0A84FF;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -178,10 +193,6 @@ nav {
     overflow: visible;
 }
 
-.hero-heading a:hover {
-    color:#2a60c9;
-}
-
 .hero-heading a::after {
     content: "";
     position: absolute;
@@ -189,30 +200,31 @@ nav {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #2a60c9;
+    background-color: var(--button-hover);
     transition: width 0.4s ease-in-out;
 }
 
 .hero-heading a:hover::after {
     width: 100%; /* Underline expands from left to right */
-    color:#2a60c9;
 }
 
 .hero-heading a:not(:hover)::after {
     width: 0;
 }
 
-
 .toolsets {
     display: flex;
+    flex-direction: column;
+    width: 100%;
     max-width: 850px;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     align-items: center;
 }
 
 .toolsets p {
-    margin-right: 15px;
-    width: 550px;
+    font-size: .9rem;
+    margin-bottom: 15px;
+    white-space: nowrap;
 }
 
 @keyframes scroll {
@@ -227,6 +239,7 @@ nav {
     position: relative;
     padding: 4px 0;
     white-space: nowrap;
+    width: 100%;
 }
 
 .tool-carousel::before,
@@ -269,13 +282,83 @@ nav {
 }
 
 
-
-
-
-
 /* ========== 
     WORK  
 ========== */
+
+.work {
+    padding: 50px 0;
+    overflow: hidden;
+    position: relative;
+    background-color: rgb(245, 245, 247);
+}
+
+.work h2 {
+    padding-bottom: 30px;
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+/* Scrollable container */
+.scroll-container {
+    overflow-x: auto;
+    padding: 20px 0;
+    scrollbar-width: thin; /* Hide scrollbar on Firefox */
+    scrollbar-color: transparent transparent;
+}
+
+/* Card grid container */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-flow: column;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: max-content; /* Ensures grid items overflow and enable scrolling */
+    scroll-snap-type: x mandatory;
+}
+
+/* Individual cards */
+.card {
+    width: 400px; /* Fixed width for cards */
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    scroll-snap-align: start;
+    cursor: pointer;
+    transition: transform .3s cubic-bezier(0,0,0.5,1);
+}
+
+.card:hover {
+    transform:scale(1.0230769231)
+}
+
+/* Card images */
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Icon positioning */
+.card svg {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    color: #37373a;
+    cursor: pointer;
+}
+
+/* Hide scrollbar (optional) */
+.scroll-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Webkit browsers */
+}
 
 /* ========== 
     SERVICES  
@@ -284,6 +367,7 @@ nav {
 /* ========== 
     ABOUT  
 ========== */
+
 
 /* ========== 
     FOOTER  
@@ -300,19 +384,14 @@ footer {
 .footer-container {
     width: 90%;
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px;
 }
 
 footer p, .footer-links a {
     font-size: .9rem;
-}
-
-footer p, .footer-links a {
     color: #687076;
 }
 
@@ -331,4 +410,162 @@ footer p, .footer-links a {
     justify-content: center;
     padding:  15px;
 }
+
+/* ========== 
+    MODAL  
+========== */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 50px 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 550px;
+    position: relative;
+    animation: openModal 0.4s backwards ease;
+}
+
+@keyframes openModal {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+.close-modal {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    cursor: pointer;
+}
+
+.close-modal:hover svg {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2)
+}
+
+.modal-content input {
+    min-height: 40px;
+}
+
+.modal-content input, .modal-content textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    outline: none;
+}
+
+.modal-content textarea {
+    height: 150px;
+    resize: none;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-privacy {
+    margin: 5px auto 10px;
+    font-size: .9rem;
+    color: var(--site-links)
+}
+
+.form-privacy a {
+    color: var(--site-links);
+    text-decoration: underline;
+}
+
+.form-submit-button button {
+    width: 100%;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--button-text);
+    color: #fff;
+    cursor: pointer;
+}
+
+.form-submit-button button:hover {
+    background-color: var(--button-hover);
+    -webkit-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+}   
+
+/* =============== 
+    LARGER SCREENS  
+=============== */
+
+@media only screen and (min-width: 768px) {
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .menu {
+        display: flex;
+    }
+
+    .hero-heading h1 {
+        font-size: 6rem;
+    }
+
+    .hero-heading h2 {
+        font-size: 1.3rem;
+    }
+
+    .hero-heading a {
+        font-size: 1.2rem;
+    }
+
+    .toolsets {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .toolsets p {
+        margin-right: 15px;
+        margin-bottom: 0;
+    }
+
+    .modal-content {
+        padding: 50px 60px;
+    }
+    
+    .work h2 {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    
+}
+
+@media only screen and (min-width: 1440px) and (min-height: 1080px) {
+    
+}
+
+@media only screen and (min-width: 2201px) and (min-height: 1080px) {
+    
+}
+
+
+
 
