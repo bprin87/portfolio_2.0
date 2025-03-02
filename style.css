@@ -305,6 +305,7 @@ nav {
     padding: 20px 0;
     scrollbar-width: thin; /* Hide scrollbar on Firefox */
     scrollbar-color: transparent transparent;
+    position: relative;
 }
 
 /* Card grid container */
@@ -347,10 +348,10 @@ nav {
 /* Icon positioning */
 .card svg {
     position: absolute;
-    bottom: 5px;
-    right: 5px;
-    width: 20px;
-    height: 20px;
+    bottom: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
     color: #37373a;
     cursor: pointer;
 }
@@ -358,6 +359,37 @@ nav {
 /* Hide scrollbar (optional) */
 .scroll-container::-webkit-scrollbar {
     display: none; /* Hide scrollbar for Webkit browsers */
+}
+
+.scroll-buttons {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-top: 20px;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.scroll-buttons button {
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(210, 210, 215, 0.64);
+    padding: 10px;
+    cursor: pointer;
+}
+
+.scroll-buttons button:hover {
+    background-color: rgba(223, 223, 227, 0.6976);
+}
+
+.scroll-buttons button svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-buttons button.active {
+    background-color: darkgray;
 }
 
 /* ========== 
@@ -412,10 +444,10 @@ footer p, .footer-links a {
 }
 
 /* ========== 
-    MODAL  
+    ENQUIRY MODAL  
 ========== */
 
-.modal {
+.enquiry-modal {
     display: none; /* Hidden by default */
     position: fixed;
     z-index: 200;
@@ -509,6 +541,13 @@ footer p, .footer-links a {
     transition: .4s;
 }   
 
+
+/* ========== 
+    PROJECT MODAL  
+========== */
+
+
+
 /* =============== 
     LARGER SCREENS  
 =============== */
@@ -550,7 +589,8 @@ footer p, .footer-links a {
     }
     
     .work h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        padding-bottom: 10px;
     }
 }
 
