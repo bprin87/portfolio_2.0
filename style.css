@@ -469,7 +469,7 @@ footer p, .footer-links a {
     padding: 40px 0;
     overflow-y: auto;
     /* For Flex display when applied in js */
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 

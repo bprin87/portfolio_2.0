@@ -1,3 +1,69 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Select all modals and related elements
+    const modals = document.querySelectorAll(".enquiry-modal, .project-modal");
+    const openModalLinks = document.querySelectorAll(".open-modal, .card");
+    const closeModalButtons = document.querySelectorAll(".close-enquiry-modal, .close-project-modal");
+    const modalBackground = document.querySelector(".modal-background");
+    const body = document.body;
+
+    // Ensure modals are hidden when the page loads
+    modals.forEach(modal => modal.style.display = "none");
+    modalBackground.style.display = "none";
+
+    // Function to open a modal
+    function openModal(modal) {
+        modalBackground.style.display = "flex";
+        modal.style.display = "block";
+        
+        // Disable background scrolling when a modal is open
+        body.style.overflow = "hidden";
+
+        // Ensure the modal scrolls to the top when opened
+        modal.scrollTop = 0;
+    }
+
+    // Function to close all modals
+    function closeModals() {
+        modalBackground.style.display = "none";
+        modals.forEach(modal => modal.style.display = "none");
+
+        // Restore scrolling on the body when modal is closed
+        body.style.overflow = "auto";
+    }
+
+    // Open Enquiry Modal or Project Modal
+    openModalLinks.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            
+            let modalId;
+            if (this.classList.contains("open-modal")) {
+                modalId = "enquiry-modal"; // Enquiry modal
+            } else {
+                modalId = this.getAttribute("data-modal"); // Get specific project modal ID
+            }
+
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                openModal(modal);
+            }
+        });
+    });
+
+    // Close modal when clicking the close button
+    closeModalButtons.forEach(button => {
+        button.addEventListener("click", closeModals);
+    });
+
+    // Close modal when clicking outside of it
+    modalBackground.addEventListener("click", function (event) {
+        if (event.target === modalBackground) {
+            closeModals();
+        }
+    });
+});
+
 // Wait for the DOM to fully load before running the script
 document.addEventListener("DOMContentLoaded", function () {
     
@@ -19,47 +85,45 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Modal Form
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
 
-    const modal = document.getElementById("enquiry-modal");
-    const openModalLinks = document.querySelectorAll(".open-modal");
-    const closeModal = document.querySelector(".close-enquiry-modal");
-    const modalBackground = document.querySelector(".modal-background");
-    const body = document.querySelector("body");
+//     const modal = document.querySelectorAll("enquiry-modal");
+//     const openModalLinks = document.querySelectorAll(".open-modal");
+//     const closeModal = document.querySelector(".close-enquiry-modal");
+//     const modalBackground = document.querySelector(".modal-background");
+//     const body = document.querySelector("body");
 
-    // Ensure modal is hidden when the page loads
-    modalBackground.style.display = "none";
+//     // Ensure modal is hidden when the page loads
+//     modalBackground.style.display = "none";
 
-    // Open modal when any 'Project Enquiry' link is clicked
-    openModalLinks.forEach(link => {
-        link.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent default anchor behavior
-            modalBackground.style.display = "flex";
-            modal.style.display = "block";
+//     // Open modal when any 'Project Enquiry' link is clicked
+//     openModalLinks.forEach(link => {
+//         link.addEventListener("click", function (event) {
+//             event.preventDefault(); // Prevent default anchor behavior
+//             modalBackground.style.display = "flex";
             
-            // Disable scrolling
-            body.style.overflow = 'hidden';
-        });
-    });
+//             // Disable scrolling
+//             body.style.overflow = 'hidden';
+//         });
+//     });
 
-    // Close modal when clicking the close button
-    closeModal.addEventListener("click", function () {
-        modalBackground.style.display = "none";
-        modal.style.display = "none";
+//     // Close modal when clicking the close button
+//     closeModal.addEventListener("click", function () {
+//         modalBackground.style.display = "none";
+    
+//         // Enable scrolling
+//         body.style.overflow = 'auto';
+//     });
 
-        // Enable scrolling
-        body.style.overflow = 'auto';
-    });
-
-    // Close modal when clicking outside of it
-    window.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            modalBackground.style.display = "none";
-            modal.style.display = "none";
-            body.style.overflow = 'auto';
-        }
-    });
-});
+//     // Close modal when clicking outside of it
+//     window.addEventListener("click", function (event) {
+//         if (event.target === modal) {
+//             modalBackground.style.display = "none";
+//             modal.style.display = "none";
+//             body.style.overflow = 'auto';
+//         }
+//     });
+// });
 
 // Sroll buttons for featured work and projects
 const scrollContainer = document.querySelector('.scroll-container');
