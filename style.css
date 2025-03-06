@@ -345,6 +345,7 @@ nav {
     object-fit: cover;
 }
 
+
 /* Icon positioning */
 .card svg {
     position: absolute;
@@ -354,6 +355,14 @@ nav {
     height: 30px;
     color: #37373a;
     cursor: pointer;
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card svg:hover {
+    color: darkgrey;
 }
 
 /* Hide scrollbar (optional) */
@@ -444,32 +453,44 @@ footer p, .footer-links a {
 }
 
 /* ========== 
-    ENQUIRY MODAL  
+    MODALS  
 ========== */
 
-.enquiry-modal {
-    display: none; /* Hidden by default */
+.modal-background {
+    display: none;
     position: fixed;
     z-index: 200;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(15px);
-    display: flex;
-    justify-content: center;
+    backdrop-filter: blur(15px); 
+    padding: 40px 0;
+    overflow-y: auto;
+    /* For Flex display when applied in js */
     align-items: center;
+    justify-content: center;
 }
 
-.modal-content {
+.enquiry-modal {
     background: white;
-    padding: 50px 30px;
     border-radius: 15px;
     width: 90%;
     max-width: 550px;
     position: relative;
-    animation: openModal 0.4s backwards ease;
+    animation: openModal 0.4s backwards ease;  
+}
+
+.project-modal {
+    background: white;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+    animation: openModal 0.4s backwards ease; 
+    margin: 50px auto; 
+    overflow: hidden;  
 }
 
 @keyframes openModal {
@@ -477,24 +498,56 @@ footer p, .footer-links a {
     100% { transform: scale(1); }
 }
 
-.close-modal {
+.enquiry-modal-content {
+    padding: 50px 30px;
+}
+
+.project-modal-content {
+    padding: 60px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.close-enquiry-modal, .close-project-modal {
     position: absolute;
     top: 18px;
     right: 18px;
     cursor: pointer;
+    background-color: black;
+    border-radius: 50%;
+    color:rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    transition: color .3s ease-in-out;
+
+    padding: 4px;
 }
 
-.close-modal:hover svg {
-    transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2)
+.close-enquiry-modal {
+    padding: 4px;
 }
 
-.modal-content input {
+.close-project-modal {
+    padding: 8px;
+}
+
+.close-project-modal svg {
+    height: 14px;
+    width: 14px;
+    stroke: currentColor; 
+    stroke-width: 1px; 
+    fill: none; 
+}
+
+.close-enquiry-modal:hover svg, .close-project-modal:hover svg {
+    color: #fff;
+}
+
+.enquiry-modal-content input {
     min-height: 40px;
 }
 
-.modal-content input, .modal-content textarea {
+.enquiry-modal-content input, .enquiry-modal-content textarea {
     width: 100%;
     padding: 8px;
     margin: 8px 0 18px;
@@ -504,7 +557,7 @@ footer p, .footer-links a {
     outline: none;
 }
 
-.modal-content textarea {
+.enquiry-modal-content textarea {
     height: 150px;
     resize: none;
     font-family: inherit;
@@ -539,20 +592,43 @@ footer p, .footer-links a {
     -webkit-transition: .4s;
     -o-transition: .4s;
     transition: .4s;
-}   
+} 
+
+.project-modal-content h2 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
 
 
-/* ========== 
-    PROJECT MODAL  
-========== */
+.project-date {
+    font-size: 1rem;
+    font-weight: 300;
+}
 
+.project-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 50px;
+    padding: 15px;
+    background-color: rgb(245, 245, 247);
+    border-radius: 15px;
+}
 
+.project-description {
+    margin-bottom: 10px;
+    line-height: 30px;
+}
 
 /* =============== 
     LARGER SCREENS  
 =============== */
 
 @media only screen and (min-width: 768px) {
+
+
+}
+
+@media only screen and (min-width: 1024px) {
 
     .logo {
         font-size: 1.4rem;
@@ -587,14 +663,24 @@ footer p, .footer-links a {
     .modal-content {
         padding: 50px 60px;
     }
+
+    .close-project-modal svg {
+        height: 20px;
+        width: 20px; 
+    }
     
     .work h2 {
         font-size: 1.8rem;
         padding-bottom: 10px;
     }
-}
 
-@media only screen and (min-width: 1024px) {
+    .project-modal-content {
+        padding: 70px;
+    }
+
+    .project-modal-content h2 {
+        font-size: 2rem;
+    }
     
 }
 

@@ -98,7 +98,7 @@
                 <div class="scroll-container">
                     <ul class="card-container">
                         <li>
-                            <div class="card">
+                            <div class="card" data-modal="shopify-modal">
                                 <img src="./images/cards/shopify.png" alt="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
@@ -106,7 +106,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="card">
+                            <div class="card" data-modal="i-do-events-modal">
                                 <img src="./images/cards/i-do-events.png" alt="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
@@ -114,7 +114,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="card">
+                            <div class="card" data-modal="space-blasters-modal">
                                 <img src="./images/cards/space-blasters.png" alt="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
@@ -122,7 +122,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="card">
+                            <div class="card" data-modal="eha-modal">
                                 <img src="./images/cards/EHA.png" alt="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
@@ -130,7 +130,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="card">
+                            <div class="card" data-modal="times-table-modal">
                                 <img src="./images/cards/times-table.png" alt="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
@@ -191,11 +191,12 @@
         </div>
     </footer>
 
-    <!-- Enquiry Modal -->
+<!-- Enquiry Modal -->
+<div class="modal-background">
     <div id="enquiry-modal" class="enquiry-modal">
-        <div class="modal-content">
-            <span class="close-modal"> 
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+        <div class="enquiry-modal-content">
+            <span class="close-enquiry-modal"> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                     <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
                 </svg>
             </span>
@@ -226,23 +227,38 @@
                 </ul>
             </form>
         </div>
-     </div>
+    </div>
+</div>
 
-     <!-- Project Modal -->
-      <div id="project-modal" class="project-modal">
-        <div class="modal-content">
-            <span class="close-modal"> 
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                </svg>
-            </span>
-            <div class="project-details">
-                <h2 class="project-title"></h2>
-                <p class="project-description"></p>
-                <a class="project-link" href="" target="_blank">Open Live Site</a>
-            </div>
+<!-- Work/Project Modals -->
+<div class="modal-background">
+    <div id="shopify-modal" class="project-modal">
+        <span class="close-project-modal"> 
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+            </svg>
+        </span>
+        <div class="project-modal-content">
+            <h2 class="project-title">Shopify Website</h2>
+            <h3 class="project-date">January 2025</h3>
+            <ul class="project-details">
+                <li class="project-image"><img src="" alt=""></li>
+                <li class="project-description">I am currently developing an e-commerce website for a client in the wedding industry, focusing on a beautifully designed 
+                    online storefront that aligns with their brand’s aesthetic and business goals. The client is launching a new business and required a Shopify-based 
+                    solution that offers a seamless shopping experience, intuitive navigation, and mobile-friendly design.
+                </li>
+                <li class="project-image"><img src="" alt=""></li>
+                <li class="project-description">
+                    As this is my first Shopify project, I am actively learning and implementing theme customisations, Liquid templating, and e-commerce best practices. 
+                    This experience has provided me with me experience of build high-quality, conversion-focused online stores while expanding my expertise in the Shopify ecosystem.
+                </li>
+                <!-- <a class="project-link" href="" target="_blank">Open Live Site</a> -->
+            </ul>
         </div>
-      </div>
+    </div>
+</div>
+
+     
 
 </body>
 </html>

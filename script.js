@@ -18,41 +18,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
 // Modal Form
 document.addEventListener("DOMContentLoaded", function () {
 
     const modal = document.getElementById("enquiry-modal");
     const openModalLinks = document.querySelectorAll(".open-modal");
-    const closeModal = document.querySelector(".close-modal");
-    const background = document.querySelector("body");
+    const closeModal = document.querySelector(".close-enquiry-modal");
+    const modalBackground = document.querySelector(".modal-background");
+    const body = document.querySelector("body");
 
     // Ensure modal is hidden when the page loads
-    modal.style.display = "none";
+    modalBackground.style.display = "none";
 
     // Open modal when any 'Project Enquiry' link is clicked
     openModalLinks.forEach(link => {
         link.addEventListener("click", function (event) {
             event.preventDefault(); // Prevent default anchor behavior
-            modal.style.display = "flex";
+            modalBackground.style.display = "flex";
+            modal.style.display = "block";
             
             // Disable scrolling
-            background.style.overflow = 'hidden';
+            body.style.overflow = 'hidden';
         });
     });
 
     // Close modal when clicking the close button
     closeModal.addEventListener("click", function () {
+        modalBackground.style.display = "none";
         modal.style.display = "none";
 
         // Enable scrolling
-        background.style.overflow = 'auto';
+        body.style.overflow = 'auto';
     });
 
     // Close modal when clicking outside of it
     window.addEventListener("click", function (event) {
         if (event.target === modal) {
+            modalBackground.style.display = "none";
             modal.style.display = "none";
+            body.style.overflow = 'auto';
         }
     });
 });
@@ -74,17 +78,6 @@ scrollLeftButton.addEventListener('click', () => {
 scrollRightButton.addEventListener('click', () => {
     scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
 });
-
-// Function to update button styles based on scroll direction
-function updateButtonState(direction) {
-    if (direction === -1) { // Moving left
-        scrollLeftButton.classList.add('active');
-        scrollRightButton.classList.remove('active');
-    } else if (direction === 1) { // Moving right
-        scrollRightButton.classList.add('active');
-        scrollLeftButton.classList.remove('active');
-    }
-}
 
 // Detect manual scrolling and update button states
 scrollContainer.addEventListener('scroll', () => {
