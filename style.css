@@ -489,7 +489,7 @@ footer p, .footer-links a {
     max-width: 1200px;
     position: relative;
     animation: openModal 0.4s backwards ease; 
-    margin: 50px auto; 
+    margin: 10px auto; 
     overflow: hidden;  
 }
 
@@ -599,7 +599,6 @@ footer p, .footer-links a {
     margin-bottom: 5px;
 }
 
-
 .project-date {
     font-size: 1rem;
     font-weight: 300;
@@ -607,17 +606,26 @@ footer p, .footer-links a {
 
 .project-details {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 50px;
-    padding: 15px;
-    background-color: rgb(245, 245, 247);
-    border-radius: 15px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-top: 50px;
 }
 
 .project-description {
-    margin-bottom: 10px;
-    line-height: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: rgb(245, 245, 247);
+    border-radius: 15px;
+    min-height: 600px;
+    overflow: hidden;
 }
+
+.project-description img {
+    object-fit: cover;
+    width: auto;
+    align-self: end;
+}
+
 
 /* =============== 
     LARGER SCREENS  
@@ -681,6 +689,62 @@ footer p, .footer-links a {
     .project-modal-content h2 {
         font-size: 2rem;
     }
+
+    .project-details {
+        grid-template-rows: auto auto;
+        gap: 20px;
+    }
+   
+    .project-description {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        min-height: 600px;
+    }
+
+    .project-description img {
+        object-fit: cover;
+        width: auto;
+        align-self: end;
+    }
+
+   /* First project description: p on left, img on right */
+    .project-description:nth-child(1) p {
+        grid-column: 1;
+        padding: 120px 30px;
+    }
+    
+    .project-description:nth-child(1) img {
+        grid-column: 2;
+        height: 550px;
+        border-top-left-radius: 15px;
+    }
+    
+    /* Second project description: img on left, p on right */
+    .project-description:nth-child(2) img {
+        grid-column: 1;
+        height: 600px;
+        width: 300px;
+        margin: 0 auto -50px auto;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+    
+    .project-description:nth-child(2) p {
+        grid-column: 2;
+        padding: 120px 30px;
+    }
+
+    .project-description p {
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+        line-height: 1.6;
+    }
+
+   
+
+
+
+   
     
 }
 
