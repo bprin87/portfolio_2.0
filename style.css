@@ -616,14 +616,28 @@ footer p, .footer-links a {
     grid-template-columns: 1fr;
     background-color: rgb(245, 245, 247);
     border-radius: 15px;
-    min-height: 600px;
     overflow: hidden;
+    gap: 20px;
+}
+
+.project-description p {
+    margin:  auto;
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .project-description img {
     object-fit: cover;
-    width: auto;
-    align-self: end;
+    width: 300px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.project-description:nth-child(2) img {
+    width: 200px;
+    margin-bottom: -10px;
 }
 
 
@@ -696,9 +710,17 @@ footer p, .footer-links a {
     }
    
     .project-description {
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
         min-height: 600px;
+        align-items: center;
+        justify-content: start;
+    }
+
+    .project-description p {
+        margin: auto 0;
+        font-size: 1.4rem;
+        line-height: 1.6;
     }
 
     .project-description img {
@@ -710,36 +732,36 @@ footer p, .footer-links a {
    /* First project description: p on left, img on right */
     .project-description:nth-child(1) p {
         grid-column: 1;
-        padding: 120px 30px;
+        padding-left: 30px;
     }
     
     .project-description:nth-child(1) img {
         grid-column: 2;
         height: 550px;
         border-top-left-radius: 15px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
     }
     
     /* Second project description: img on left, p on right */
     .project-description:nth-child(2) img {
         grid-column: 1;
-        height: 600px;
+        grid-row: 1;
+        height: auto;
         width: 300px;
-        margin: 0 auto -50px auto;
+        margin: 0 auto -150px auto;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
     }
     
     .project-description:nth-child(2) p {
         grid-column: 2;
-        padding: 120px 30px;
+        grid-row: 1;
+        padding-right: 30px;
     }
 
-    .project-description p {
-        margin-bottom: 10px;
-        font-size: 1.3rem;
-        line-height: 1.6;
-    }
-
+  
    
 
 
